@@ -1,0 +1,4 @@
+Regresar
+Batman | accion | el joker escapa y batman debe detenerlo | 2:30 | 2:00 | A | 
+interestelar | aventura | un padre de familia debe asumir el rol de salvar la tierra | 14:00pm | 14:00pm | 
+El regalo prometido | navide¤o | un papa busca un regalo para su hijo | 1:30 | 14:00 | A | 
