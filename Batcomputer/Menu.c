@@ -33,6 +33,17 @@ void menu(){
                     int en_sesion = 1;// variable para controlar el ciclo de sesión del administrador, es 1 mientras el administrador esté en sesión y se vuelve 0 cuando el administrador decide salir
                         
                     while (en_sesion == 1) {
+                        //Arte ASCII bien perro
+                        printf("  .o888P     Y8o8Y     Y888o.");
+                        printf(" d88888      88888      88888b");
+                        printf("d888888b_  _d88888b_  _d888888b");
+                        printf("8888888888888888888888888888888");
+                        printf("8888888888888888888888888888888");
+                        printf("YJGS8P"Y888P"Y888P"Y888P"Y8888P");
+                        printf(" Y888   '8'   Y8P   '8'   888Y");
+                        printf("  '8o          V          o8'");
+                        printf("    `                     `");
+
                         printf("\nAcceso de administrador concedido: BATCOMPUTADORA \n");
                         printf("Bienvenido, %s\n", sesion_actual.username); 
                         printf("1) Base de Datos Arkham\n"); // lista 
