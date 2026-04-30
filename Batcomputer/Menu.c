@@ -1,33 +1,22 @@
 void menu(){
     int opcion_principal; 
     int opcion_submenu;
-    int exp_id; 
-    //variable usada para seleccionar que hacer en el sub menu del sub menu, la use para pruebas, si gustas quitala
-        int opcion_quehacer; 
-        int opcion_arkham;
-    //nose que poner, pero checala por favor
+    int opcion_quehacer; 
 
     struct User sesion_actual; // Estructura para almacenar la información del usuario que se loguea
     enum boolean logueado = False; //es false por defecto, se vuelve true si el login es exitoso}
 
-    //Apuntadores de el registro de crimenes(cola)
-    struct IncidentData *h = NULL; 
+  struct IncidentData *h = NULL; 
     struct IncidentData *t = NULL; 
-    int success;
+
     //carga la lista de crimenes [cola]
-    if(!(success = LoadCrimes(&h, &t))){
-        printf("Error de acceso 1\n");
-        return;
-    }
+    LoadCrimes(&h, &t);
 
-    //Apuntador del registro de villanos
-    struct RecordData *hList = NULL;
-
-    //carga la lista de villanos
-    if(!(success = LoadArkham(&hList))){
-        printf("Error de acceso 2\n");
-        return;
-    }
+    //carga el historial de auditoria [pila]
+    struct Stack pila_auditoria;
+    pila_auditoria.top = NULL;
+    pila_auditoria.count = 0;
+    load_audit(&pila_auditoria);
 
     while(1){
         printf("SISTEMA PRINCIPAL DE SEGURIDAD || GCPD\n");
@@ -55,45 +44,12 @@ void menu(){
                         printf("3) Auditoria del batsistema\n"); //pila
                         printf("4) Logout\n");
 
-
                         opcion_submenu = get_val("Que desea realizar?: "); //sin int porque se va a reutilizar la variable para los diferentes submenus, ademas de que no es necesario declarar una nueva variable para cada submenu
                         switch(opcion_submenu){
                             case 1:
                                 printf("\n|Cargando Base de Datos Arkham...|\n"); //pon algo cool en estas pls
-                                printf("Que desea hacer\n");
-                                printf("1) Ver los registos\n2) Agregar un nuevo expediente\n3) Buscar un expediente\n4) Eliminar un expediente\n5) Salir\n");
-                                scanf("%d", &opcion_arkham);
-
-                                switch(opcion_arkham){
-                                    case(1):
-                                        VerRegistros(&hList);
-
-                                        break;
-
-                                    case(2):
-                                        AgregarExpediente(&hList);
-
-                                        break;
-                                    
-                                    case(3):
-                                        printf("Escriba el id del expediente\n");
-                                        scanf("%d", &exp_id);
-                                        if(!SearchExp(&hList, exp_id)){
-                                            printf("Expediente no encontrado\n"); 
-                                            break; 
-                                        }
-
-                                        break;
-
-                                    case(4):
-                                        //falta eliminar
-                                        break;
-                                    case(5):
-                                        //falta salir
-                                        break;
-                                }
-                                break; 
-                            case (2):
+                                break;
+                            case 2:
                                 printf("\n|Accediendo a la gestion de incidentes en Gotham...|\n");
                                 printf("1) Reportar incidente\n2) Ver todos los crimenes\n3) Fijar Objetivo\n4) Salir\n");
                                 opcion_quehacer= get_val("Opcion: ");

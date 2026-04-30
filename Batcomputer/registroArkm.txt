@@ -3,3 +3,4 @@
 3, Selina Kyle, 5 amarillo
 5, Edward Nigma, 7 naranja
 10, Pamela Isley, 8 naranja
+24, d, f

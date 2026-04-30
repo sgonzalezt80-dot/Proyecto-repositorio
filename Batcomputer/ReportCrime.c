@@ -1,9 +1,10 @@
 enum boolean ReportCrime(struct IncidentData **h, struct IncidentData **t){
-    int opcion, error, ln; 
-    char descrip[150];
-    char prior[50];
+    int error, ln; 
+    char descrip[100];
+    char prior[20];
 
-    FILE *f = fopen("crimes.txt", "a");
+    FILE *f = fopen("crimes.txt", "a"); /* "a" para hacer append =añadir al final del archivo
+     si el archivo no existe, lo crea. Si existe, agrega al final sin borrar lo anterior.*/
     if (f ==  NULL){
         return False; 
     }

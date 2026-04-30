@@ -21,15 +21,17 @@ enum boolean LoadArkham(struct RecordData **h){
         tmp -> id_registro = id;
         strcpy(tmp -> nombre, name);
         strcpy(tmp -> nivel_riesgo, risk);
+        tmp->prev = NULL;
 
         //Si no hay registros, *h se queda en el primero que lea la lista 
         if(*h == NULL){
+            tmp->nxt = NULL;
             *h = tmp;
-            tmp -> nxt = NULL;
 
         }else{ //para los demás registros se guarda aqui
-            tmp -> nxt = (*h);
-            (*h) = tmp; 
+            tmp->nxt = *h;
+            (*h)->prev = tmp; // El antiguo head ahora apunta hacia atras al nuevo nodo
+            *h = tmp; // El head ahora apunta al nuevo nodo, que es el nuevo inicio de la lista
         }
         
     }

@@ -37,7 +37,7 @@ enum boolean push_audit(struct Stack *s, char *nueva_operacion) {
 
     // Guardar cambio en el archivo de texto
     FILE *f = fopen("audit.txt", "a"); // "a" para hacer append =añadir al final
-    if (f != NULL) {.
+    if (f != NULL) {
 
         fprintf(f, "%s\n", nueva_operacion);
         fclose(f);
