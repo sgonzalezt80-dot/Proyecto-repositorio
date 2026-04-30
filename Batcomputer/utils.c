@@ -3,7 +3,7 @@
 
 int get_val(char *msg) { 
     /* Funcion para obtener un valor entero con manejo de errores estricto */
-    int v;
+    int v; //v de valor, res de resultado de scanf
     printf("%s", msg);
     int res = scanf("%d", &v);
     if (res != 1) {
@@ -15,5 +15,5 @@ int get_val(char *msg) {
         }
         return -1; 
     }
-    return v;
+    return v; // Devuelve el valor ingresado si es válido
 }

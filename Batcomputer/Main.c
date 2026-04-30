@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_INCIDENTS 10 
+#define MAX_INCIDENTS 50
 enum boolean { False, True };
 enum role { ADMIN = 1, USER = 2 };
 
@@ -11,7 +11,9 @@ enum role { ADMIN = 1, USER = 2 };
 struct User {
     char username[20];
     char password[20];
-    enum role access_level;
+    enum role access_level; // ADMIN o USER
+    //enum role es un campo que indica el nivel de acceso del usuario, puede ser ADMIN o USER.
+    // un campo de tipo enum es una variable que puede tomar un conjunto de valores predefinidos, en este caso ADMIN o USER, que se representan con los valores 1 y 2 respectivamente. esto permite diferenciar entre los diferentes tipos de usuarios y otorgarles diferentes permisos en el sistema.
 };
 
 // Base de Datos (Lista Doble)
@@ -61,8 +63,8 @@ struct Stack {
 };
 
 #include "utils.c"
-#include "Menu.c"
-// #include "login.c"  
+#include "login.c"
+#include "menu.c"
 // #include "database.c"
 // #include "queue_incidents.c"
 // #include "stack_audit.c"

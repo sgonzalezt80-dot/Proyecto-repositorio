@@ -1,65 +1,85 @@
-#include "Batman.c"
 
 void menu(){
-    int opcion_principal;
-    // cambiar el valor de loggin
-    int loggin = 1;
-    int opcion_batman;
-    int opcion_normal;
+    int opcion_principal; }
+    int opcion_submenu;
+    struct User sesion_actual; // Estructura para almacenar la información del usuario que se loguea
+    enum boolean logueado = False; //es false por defecto, se vuelve true si el login es exitoso}
 
     while(1){
-        printf("Que desea realizar?\n1) Iniciar sesion\n2) Salir\n");
-        scanf("%d", &opcion_principal);
-
+        printf("SISTEMA PRINCIPAL DE SEGURIDAD || GCPD\n");
+        printf("1) Iniciar sesion\n2) Salir\n");
+        opcion_principal = get_val("Que desea realizar?: "); //no scanf, get_val para manejo de errores
+//get_val es una funcion que se encuentra en utils.c, sirve para validar que el usuario ingrese un numero y no una letra o así, ademas de evitar el desbordamiento de memoria
         if(opcion_principal == 1){
-            //manda a login
-            //este scanf es para pruebas
-            scanf("%d", &loggin); 
-        }else{
-            return;
-        }
+           logueado = login_user(&sesion_actual); //logueado es una variable booleana que se vuelve true si el login es exitoso
+           /*login_user es una funcion que se encuentra en login.c, sirve para validar el login del usuario
+            recibe un puntero a una estructura User para guardar la informacion del usuario que se logueo
+            devuelve True si el login es exitoso y False si no lo es*/
+           if (logueado == True) {
+            //batman interfaz jeje
+            if (sesion_actual.access_level == ADMIN) { // .access_level es un campo de la estructura User que indica el nivel de acceso del usuario
+                    int en_sesion = 1;// variable para controlar el ciclo de sesión del administrador, es 1 mientras el administrador esté en sesión y se vuelve 0 cuando el administrador decide salir
+                    while (en_sesion == 1) { 
+                        printf("\nAcceso de administrador concedido: BATCOMPUTADORA \n");
+                        printf("/＼ ^.ˍ.^ ／|");
+                        printf("Bienvenido, %s\n", sesion_actual.username); 
+                        printf("1) Base de Datos Arkham\n"); // lista 
+                        printf("2) gestionar incidentes en Gotham\n"); //cola
+                        printf("3) Auditoría del batsistema"\n); //pila
+                        printf("4) Logout\n");
 
-        if(loggin == 1){    // lleva a las opciones de batman
-            while(loggin == 1){
-                printf("Bienvenido batman\nQue desea realizar\n1) opcion1\n2) opcion2\n3) Salir\n");
-                scanf("%d", &opcion_batman);
-                switch(opcion_batman){
-                    case 1:
+                        opcion_submenu = get_val("Que desea realizar?: "); //sin int porque se va a reutilizar la variable para los diferentes submenus, ademas de que no es necesario declarar una nueva variable para cada submenu
+                            case 1:
+                                printf("\n|Cargando Base de Datos Arkham...|\n"); //pon algo cool en estas pls
+                                break;
+                            case 2:
+                                // miau
+                                break;
+                            case 3:
+                                printf("\n");
+                                break;
+                            case 4:
+                                en_sesion = 0; // Rompe el ciclo del submenu
+                                logueado = False;
+                                printf("\nCerrando sesion de Admin ...\n");
+                                break;
+                            default:
+                                printf("\n[!] Opcion invalida [!]\n");
+                        }
+                    }
+                }
+                else if (sesion_actual.access_level == USER) {
+                    int en_sesion = 1;
+                    while (en_sesion == 1) {
+                        printf("\nAcceso concedido: TERMINAL GCPD\n");
+                        printf("Bienvenido Oficial %s\n", sesion_actual.username);
+                        printf("1) Consultar Base de Datos\n");
+                        printf("2) Reportar Incidente\n");
+                        printf("3) Cerrar Sesion\n");
+                        
+                        opcion_submenu = get_val("Que desea realizar?: ");
 
-                        break;
-                    case 2:
-                
-                        break;
-                
-                    case 3:
-                        loggin = 0; //reinicia la variable para romper el ciclo
-                        printf("Vuelva pronto\n");
-                        break;
+                        switch(opcion_submenu) {
+                            case 1:
+                                printf("\n|consultando base de datos...|\n");// de nuevo pon algo cool y asi
+                                break;
+                            case 2:
+                                printf("\n\n");
+                                break;
+                            case 3:
+                                en_sesion = 0; // Rompe el ciclo del submenu
+                                logueado = False;
+                                printf("\nCerrando sesion de Usuario ...\n");
+                                break;
+                            default:
+                                printf("\n[!] Opcion invalida [!]\n");
+                        }
+                    }
                 }
             }
-        }else{  // lleva a las opciones de los policias 
-            printf("Bienvenido al sistema del DPCG\nQue desea hacer?\n1) opcion1\n2) opcion2\n3)opcion3 ");
-            scanf("%d", &opcion_normal); 
-            while(loggin == 2){
-                switch(opcion_normal){
-                    case 1:
-
-                        break;
-
-                    case 2:
-
-                        break;
-                    
-                    case 3:
-                        // reinicia la variable para romper el ciclo 
-                        loggin = 0;
-                        break;
-                }
-            }
+        } else if (opcion_principal == 2) {
+            printf("\nApagando sistema... Hasta pronto. Manten Gotham a salvo\n");
+            return; // Salimos de la funcion menu y el programa termina limpiamente
+        } else {
+            printf("\n[!] Opcion invalida. Intente de nuevo [?]\n");
         }
-    }
-
-    //int opcion_principal;
-    //struct User sesion_actual
-
-}
