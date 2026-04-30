@@ -1,0 +1,5 @@
+1, Joker, 10 rojo
+2, bane, 10 rojo
+3, Selina Kyle, 5 amarillo
+5, Edward Nigma, 7 naranja
+10, Pamela Isley, 8 naranja

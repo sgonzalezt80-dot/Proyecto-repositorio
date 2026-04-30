@@ -1,4 +1,4 @@
-void WatchCrimes(struct IncidentData incidentes, struct IncidentData **h, struct IncidentData **t){
+void WatchCrimes(struct IncidentData **h, struct IncidentData **t){
     int i = 1;
 
     //si la cola esta vacia no hay crimenes 
