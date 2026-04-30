@@ -8,25 +8,24 @@ enum boolean SolveCrimes(struct IncidentData **h, struct IncidentData **t){
         return True; 
     }
 
-    printf("Deseas fijar este crimen como objetivo\n"); 
-    printf("%s, %s\n", (*h) -> descripcion, (*h) -> prioridad); 
+    printf("Deseas fijar este crimen como objetivo?\n"); 
+    printf("Prioridad %s: %s\n", (*h)->prioridad, (*h)->descripcion);
     printf("1) Si\n2) Regresar\n"); 
-    //Agregar validacion
-    scanf("%d", &res);
-
+    
+    res=get_val("Opcion: ");
     //quita el primer elemento de la cola (FIFO)
     if(res == 1){
         tmp = *h;
 
         if(*h == *t){ 
-            *t == NULL;
-            *h == NULL; 
+            *t = NULL;
+            *h = NULL; 
             printf("Bien hecho caballero de la noche, no quedan más crimenes\n");
 
         }else{
             tmp = (*h); 
             (*h) = (*h) -> nxt; 
-            printf("Bien hecho caballero de la noche\n");
+            printf("Bien hecho caballero de la noche. Incidente resuelto: %s\n", tmp->descripcion);
         }
         
         free(tmp);

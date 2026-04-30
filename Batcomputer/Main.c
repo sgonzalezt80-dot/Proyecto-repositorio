@@ -19,7 +19,7 @@ struct User {
 // Base de Datos (Lista Doble)
 struct RecordData {
     int id_registro;
-    char nombre[50];
+    char nombre[20];
     char nivel_riesgo[20]; 
 };
 
@@ -66,14 +66,14 @@ struct Stack {
 
 #include "utils.c"
 #include "login.c"
+#include "LoadCrimes.c"
+#include "ReportCrime.c"
+#include "WatchCrimes.c"
+#include "SolveCrimes.c"
 #include "Menu.c"
-// #include "database.c"
-// #include "queue_incidents.c"
-// #include "stack_audit.c"
 
-//void menu();
 int main() {
-    printf("No se por que no corre si no pongo este mensaje\n"); 
+    printf("\nIniciando sistemas GCPD...\n"); 
     menu();
     return 0;
 }
