@@ -28,6 +28,7 @@ struct IncidentData {
     int id_incidente;
     char descripcion[100];
     char prioridad[20];
+    
     struct IncidentData *nxt;
 };
 

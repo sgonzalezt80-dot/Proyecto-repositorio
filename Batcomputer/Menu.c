@@ -1,12 +1,13 @@
 #include "LoadCrimes.c"
 #include "ReportCrime.c"
 #include "WatchCrimes.c"
+#include "SolveCrimes.c"
 
 
 void menu(){
     int opcion_principal; 
     int opcion_submenu;
-
+ 
     //variable usada para seleccionar que hacer en el sub menu del sub menu, la use para pruebas, si gustas quitala
             int opcion_quehacer; 
     //nose que poner, pero checala por favor
@@ -54,19 +55,23 @@ void menu(){
                                 printf("\n|Cargando Base de Datos Arkham...|\n"); //pon algo cool en estas pls
                                 break;
                             case 2:
-                                printf("1) Reportar incidente\n2) Ver todos los crimenes\n3) Salir\n");
+                                printf("1) Reportar incidente\n2) Ver todos los crimenes\n3) Fijar Objetivo\n4) Salir\n");
                                 scanf("%d", &opcion_quehacer); 
 
                                     if(opcion_quehacer == 1){
                                         ReportCrime(&h, &t);
-
+                                        break;
                                     }else if(opcion_quehacer == 2){
                                         WatchCrimes(incidentes[MAX_INCIDENTS], &h, &t);
-
-                                    }else{
+                                        break;
+                                    }else if(opcion_quehacer == 3){
+                                        SolveCrimes(&h, &t);
                                         break; 
+                                    }else{
+                                        break;
                                     }
                                 break;
+
                             case 3:
                                 printf("\n");
                                 break;
