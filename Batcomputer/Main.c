@@ -28,6 +28,7 @@ struct IncidentData {
     int id_incidente;
     char descripcion[100];
     char prioridad[20];
+    struct IncidentData *nxt;
 };
 
 // Auditoria (Pila LIFO)
@@ -64,13 +65,14 @@ struct Stack {
 
 #include "utils.c"
 #include "login.c"
-#include "menu.c"
+#include "Menu.c"
 // #include "database.c"
 // #include "queue_incidents.c"
 // #include "stack_audit.c"
 
-void menu();
+//void menu();
 int main() {
+    printf("No se por que no corre si no pongo este mensaje\n"); 
     menu();
     return 0;
 }
