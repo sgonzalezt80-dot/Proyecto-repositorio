@@ -34,15 +34,16 @@ void menu(){
                         
                     while (en_sesion == 1) {
                         //Arte ASCII bien perro
-                        printf("  .o888P     Y8o8Y     Y888o.");
-                        printf(" d88888      88888      88888b");
-                        printf("d888888b_  _d88888b_  _d888888b");
-                        printf("8888888888888888888888888888888");
-                        printf("8888888888888888888888888888888");
-                        printf("YJGS8P"Y888P"Y888P"Y888P"Y8888P");
-                        printf(" Y888   '8'   Y8P   '8'   888Y");
-                        printf("  '8o          V          o8'");
-                        printf("    `                     `");
+                        printf("\n");
+                        printf("  .o888P     Y8o8Y     Y888o.\n");
+                        printf(" d88888      88888      88888b\n");
+                        printf("d888888b_  _d88888b_  _d888888b\n");
+                        printf("8888888888888888888888888888888\n");
+                        printf("8888888888888888888888888888888\n");
+                        printf("YJGS8P\"Y888P\"Y888P\"Y888P\"Y8888P\n");
+                        printf(" Y888   '8'   Y8P   '8'   888Y\n");
+                        printf("  '8o          V          o8'\n");
+                        printf("    `                     `\n");
 
                         printf("\nAcceso de administrador concedido: BATCOMPUTADORA \n");
                         printf("Bienvenido, %s\n", sesion_actual.username); 
