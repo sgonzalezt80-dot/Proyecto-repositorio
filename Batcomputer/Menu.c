@@ -46,6 +46,18 @@ void menu(){
                     int en_sesion = 1;
                         
                     while (en_sesion == 1) {
+                        //Arte ASCII bien perro
+                        printf("\n");
+                        printf("  .o888P     Y8o8Y     Y888o.\n");
+                        printf(" d88888      88888      88888b\n");
+                        printf("d888888b_  _d88888b_  _d888888b\n");
+                        printf("8888888888888888888888888888888\n");
+                        printf("8888888888888888888888888888888\n");
+                        printf("YJGS8P\"Y888P\"Y888P\"Y888P\"Y8888P\n");
+                        printf(" Y888   '8'   Y8P   '8'   888Y\n");
+                        printf("  '8o          V          o8'\n");
+                        printf("    `                     `\n");
+
                         printf("\nAcceso de administrador concedido: BATCOMPUTADORA \n");
                         printf("Bienvenido(a), %s\n", sesion_actual.username); 
                         printf("1) Base de Datos Arkham\n"); 
