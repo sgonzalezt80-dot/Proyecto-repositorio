@@ -21,6 +21,8 @@ struct RecordData {
     int id_registro;
     char nombre[20];
     char nivel_riesgo[20]; 
+
+    struct RecordData *nxt; 
 };
 
 // Incidentes (Cola Simple)
@@ -70,8 +72,14 @@ struct Stack {
 #include "ReportCrime.c"
 #include "WatchCrimes.c"
 #include "SolveCrimes.c"
-#include "Menu.c"
+#include "LoadArkham.c"
+#include "SearchExp.c"
+#include "VerRegistros.c"
+#include "AgregarExpediente.c"
+#include "EliminarExpediente.c"
 #include "StackAudit.c"
+
+#include "Menu.c"
 
 int main() {
     printf("\nIniciando sistemas GCPD...\n"); 

@@ -1,16 +1,33 @@
 void menu(){
     int opcion_principal; 
     int opcion_submenu;
+    int exp_id; 
     int opcion_quehacer; 
+    int opcion_arkham;
+
+
 
     struct User sesion_actual; // Estructura para almacenar la información del usuario que se loguea
     enum boolean logueado = False; //es false por defecto, se vuelve true si el login es exitoso}
 
-  struct IncidentData *h = NULL; 
+    struct IncidentData *h = NULL; 
     struct IncidentData *t = NULL; 
+    int success; 
 
     //carga la lista de crimenes [cola]
-    LoadCrimes(&h, &t);
+    if(!(success = LoadCrimes(&h, &t))){
+        printf("Error de acceso 1\n");
+        return;
+    }
+
+    //Apuntador del registro de villanos
+    struct RecordData *hList = NULL;
+    
+    //carga la lista de villanos
+    if(!(success = LoadArkham(&hList))){
+        printf("Error de acceso 2\n");
+        return;
+    }
 
     //carga el historial de auditoria [pila]
     struct Stack pila_auditoria;
@@ -48,7 +65,41 @@ void menu(){
                         switch(opcion_submenu){
                             case 1:
                                 printf("\n|Cargando Base de Datos Arkham...|\n"); //pon algo cool en estas pls
+                                printf("Que desea hacer\n");
+                                printf("1) Ver los registos\n2) Agregar un nuevo expediente\n3) Buscar un expediente\n4) Eliminar un expediente\n5) Salir\n");
+                                scanf("%d", &opcion_arkham);
+
+                                    switch(opcion_arkham){
+                                    case(1):
+                                        VerRegistros(&hList);
+
+                                        break;
+
+                                    case(2):
+                                        AgregarExpediente(&hList);
+
+                                        break;
+                                    
+                                    case(3):
+                                        printf("Escriba el id del expediente\n");
+                                        scanf("%d", &exp_id);
+                                        if(!SearchExp(&hList, exp_id)){
+                                            printf("Expediente no encontrado\n"); 
+                                            break; 
+                                        }
+                                        break;
+
+                                    case(4):
+                                        EliminarExpediente(&hList);
+                                       
+                                        break;
+                                    case(5):
+                                        //falta salir
+                                        break;
+                                }
                                 break;
+
+
                             case 2:
                                 printf("\n|Accediendo a la gestion de incidentes en Gotham...|\n");
                                 printf("1) Reportar incidente\n2) Ver todos los crimenes\n3) Fijar Objetivo\n4) Salir\n");
