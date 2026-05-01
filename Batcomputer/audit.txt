@@ -1,1 +1,3 @@
 Usuario inicio sesion en el sistema
+Usuario inicio sesion en el sistema
+[Batman] cerro sesion del sistema
