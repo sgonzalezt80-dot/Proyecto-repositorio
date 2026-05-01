@@ -6,7 +6,7 @@ enum boolean LoadArkham(struct RecordData **h){
 
     //abre el archivo donde se encuentran los crimenes
     FILE *f = fopen("registroArkm.txt", "r");
-    if(f == NULL) return False; 
+    if(f == NULL) return False;
 
     while(fscanf(f, "%d, %50[^,], %19[^\n]\n", &id, name, risk) == 3){//lee el archivo mientras encuentre datos que leer
 
@@ -23,13 +23,12 @@ enum boolean LoadArkham(struct RecordData **h){
         strcpy(tmp -> nivel_riesgo, risk);
 
         //Si no hay registros, *h se queda en el primero que lea la lista 
-        if(*h == NULL){
+        if(*h == NULL) {
             *h = tmp;
-            tmp -> nxt = NULL;
-
-        }else{ //para los demás registros se guarda aqui
-            tmp -> nxt = (*h);
-            (*h) = tmp; 
+            tmp->nxt = NULL;
+        } else {
+            tmp->nxt = *h;
+            *h = tmp;
         }
         
     }
